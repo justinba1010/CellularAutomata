@@ -6,7 +6,16 @@ public class Grid {
   private static final char DEAD = ' ';
   private static final char ALIVE = '*';
   //Default to Conways Game of Life
-  private int[] numNeighbors = {3};
+  private int[] numNeighbors = {3}; //{2,3} means either two or three neighbors = alive
+  /*
+  {2} is interesting
+  {2,3} is also interesting
+  {3} is Conways Game of Life
+  {4} is not so fun to watch
+  {2,3,5,7} is neat
+  {3,5,7} is by far the closest to the behavior of Conways Game of Life I have found, with very interesting structures
+
+  */
   private int[][] neighborhood;
   private boolean bNeighborhood = false;
   private boolean bNumNeighbors = true;
@@ -69,6 +78,8 @@ public class Grid {
     for(Integer[] dead : newdead) {
       modify(dead[0],dead[1],false);
     }
+
+    gen++;
 
   }//nextGen
 
